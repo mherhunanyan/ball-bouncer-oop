@@ -15,6 +15,7 @@ export class Game {
             nestedInterval = setInterval(() => {
                 const ball = new Ball(this.card.html);
                 ball.generateRandomBallPosition();
+                ball.goToBottom();
             }, 1000);
 
             setTimeout(() => {

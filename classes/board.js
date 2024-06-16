@@ -6,6 +6,7 @@ export class Board {
         this.board.classList.add("board");
         this.board.style.width = boardSize.width + "px";
         this.board.style.height = boardSize.height + "px";
+        this.board.style.left = "20px";
         parenElement.appendChild(this.board);
         this.html = this.board;
     }

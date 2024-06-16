@@ -26,3 +26,13 @@ body {
     margin-bottom: 8px;
     outline: none;
 }
+
+.ball {
+    position: absolute;
+    display: flex;
+    border-radius: 50%;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+}

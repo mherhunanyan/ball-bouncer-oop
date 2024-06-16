@@ -1,3 +1,28 @@
 body {
     background-color: #f7f8f9;
 }
+
+.container {
+    display: flex;
+    gap: 150px;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.card {
+    display: flex;
+    background-image: url("../public/playground.jpg");
+    margin-left: 12px;
+    margin-top: 12px;
+    cursor: pointer;
+}
+
+.board {
+    display: flex;
+    position: absolute;
+    align-self: flex-end;
+    background-color: burlywood;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    outline: none;
+}

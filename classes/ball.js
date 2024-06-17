@@ -58,4 +58,14 @@ export class Ball {
             }
         }, speedBall.bottom);
     }
+
+    countBallPoint() {
+        if (this.ball.style.backgroundColor === "black") {
+            this.ball.textContent = 5;
+        } else if (this.ball.style.backgroundColor === "blue") {
+            this.ball.textContent = 10;
+        } else if (this.ball.style.backgroundColor === "red") {
+            this.ball.textContent = 15;
+        }
+    }
 }

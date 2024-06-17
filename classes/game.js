@@ -1,10 +1,11 @@
+import { countBallPoint } from "../helper/countBallPoint.js";
+import { UserStatus } from "./userStatus.js";
 import { finalTime } from "../constants.js";
 import { Points } from "./points.js";
 import { Board } from "./board.js";
 import { Timer } from "./timer.js";
 import { Card } from "./card.js";
 import { Ball } from "./ball.js";
-import { UserStatus } from "./userStatus.js";
 
 export class Game {
     isStartGame = false;
@@ -59,6 +60,7 @@ export class Game {
             nestedInterval = setInterval(() => {
                 const ball = new Ball(this.card.html);
                 ball.generateRandomBallPosition();
+                ball.countBallPoint();
                 ball.goToBottom();
             }, 1000);
 

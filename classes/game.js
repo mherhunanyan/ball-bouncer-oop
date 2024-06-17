@@ -2,12 +2,21 @@ import { finalTime } from "../constants.js";
 import { Board } from "./board.js";
 import { Ball } from "./ball.js";
 import { Card } from "./card.js";
+import { Timer } from "./timer.js";
+import { Points } from "./points.js";
 
 export class Game {
+    isStartGame = false;
+
     constructor(parentElement) {
         this.card = new Card(parentElement);
         this.board = new Board(this.card.html);
-        this.isStartGame = false;
+        this.container = document.querySelector(".container");
+        this.timerPointsContainer = document.createElement("div");
+        this.timerPointsContainer.classList.add("timerPointsContainer");
+        this.container.appendChild(this.timerPointsContainer);
+        this.timer = new Timer(this.timerPointsContainer);
+        this.points = new Points(this.timerPointsContainer);
     }
 
     startOnArrowPress() {
@@ -21,6 +30,7 @@ export class Game {
                 }
                 if (!this.isStartGame) {
                     this.start();
+                    this.timer.setTimer();
                     this.isStartGame = true;
                 }
             } else if (event.code === "ArrowRight") {
@@ -31,6 +41,7 @@ export class Game {
                 }
                 if (!this.isStartGame) {
                     this.start();
+                    this.timer.setTimer();
                     this.isStartGame = true;
                 }
             }
@@ -40,6 +51,7 @@ export class Game {
 
     start() {
         console.log("start");
+
         let nestedInterval;
         const setIntervalId = setInterval(() => {
             nestedInterval = setInterval(() => {

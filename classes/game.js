@@ -39,6 +39,7 @@ export class Game {
     }
 
     start() {
+        console.log("start");
         let nestedInterval;
         const setIntervalId = setInterval(() => {
             nestedInterval = setInterval(() => {

@@ -21,12 +21,13 @@ export class Ball {
     goToBottom() {
         let countTop = parseInt(this.html.style.top) || 0;
         const bottomBound = cardSize.height - ballSize.height;
-        console.log(bottomBound);
+
         const setIntervalId = setInterval(() => {
             if (countTop < bottomBound + 30) {
                 countTop += 10;
                 this.html.style.top = countTop + "px";
             } else {
+                this.html.remove();
                 clearInterval(setIntervalId);
             }
         }, speedBall.bottom);

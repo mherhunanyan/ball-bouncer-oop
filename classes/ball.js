@@ -1,3 +1,6 @@
+import { randomGenerateColor } from "../helper/randomGenerateColor.js";
+import { countEarnedPoint } from "../helper/countEarnedPoint.js";
+import { getRandomNumber } from "../helper/getRandomNumber.js";
 import {
     ballSize,
     boardSize,
@@ -5,8 +8,6 @@ import {
     colors,
     speedBall,
 } from "../constants.js";
-import { randomGenerateColor } from "../helper/randomGenerateColor.js";
-import { getRandomNumber } from "../helper/getRandomNumber.js";
 
 export class Ball {
     constructor(parentElement) {
@@ -31,16 +32,21 @@ export class Ball {
         const board = document.querySelector(".board");
 
         const setIntervalId = setInterval(() => {
+            const points = document.querySelector(".points");
             let countTop = parseInt(this.ball.style.top) || 0;
             const bottomBound = cardSize.height - ballSize.height;
             const ballLeft = parseInt(this.ball.style.left) || 0;
             const boardLeft = parseInt(board.style.left) || 0;
+            let textContentPoints = parseInt(points.textContent);
+
             if (countTop < bottomBound + 30) {
                 if (
                     ballLeft >= boardLeft - 15 &&
                     ballLeft <= boardLeft + boardSize.width + 5 &&
                     countTop >= bottomBound - boardSize.height + 5
                 ) {
+                    const earnedPoint = countEarnedPoint(this.ball);
+                    points.innerHTML = textContentPoints + earnedPoint;
                     this.ball.remove();
                     clearInterval(setIntervalId);
                 }

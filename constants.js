@@ -13,5 +13,5 @@ export const {
     ballSize: { width: 25, height: 25 },
     speedBall: { bottom: 90 },
     timerStart: "02:00",
-    finalTime: 20000,
+    finalTime: 120000,
 };

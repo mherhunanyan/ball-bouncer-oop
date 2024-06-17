@@ -1,8 +1,6 @@
 import { finalTime } from "../constants.js";
-import { keyDownHandler } from "../eventHandlers/keyDownHandler.js";
-import { generateRandomBallPosition } from "../helper/generateRandomBallPosition.js";
-import { Ball } from "./ball.js";
 import { Board } from "./board.js";
+import { Ball } from "./ball.js";
 import { Card } from "./card.js";
 
 export class Game {
@@ -15,7 +13,6 @@ export class Game {
     startOnArrowPress() {
         const body = document.querySelector("body");
         const keyDownHandler = (event) => {
-            console.log(this.board.html);
             if (event.code === "ArrowLeft") {
                 let countLeft = parseInt(this.board.html.style.left) || 0;
                 if (countLeft > 20) {

@@ -4,6 +4,7 @@ import { Board } from "./board.js";
 import { Timer } from "./timer.js";
 import { Card } from "./card.js";
 import { Ball } from "./ball.js";
+import { UserStatus } from "./userStatus.js";
 
 export class Game {
     isStartGame = false;
@@ -77,8 +78,17 @@ export class Game {
     end() {
         console.log("end");
 
-        const earnedPoints = +this.points.html.textContent;
-        const timerPointsContainer = document.querySelector('.timerPointsContainer');
-        
+        const userEarnedPoints = +this.points.html.textContent;
+        const userStatus = new UserStatus(this.timerPointsContainer);
+        userStatus.checkUserStatus(userEarnedPoints);
+        const newGameButton = document.createElement("button");
+        newGameButton.classList.add("newGameButton");
+        newGameButton.innerHTML = "new Game";
+        newGameButton.addEventListener("click", () => {
+            this.container.innerHTML = "";
+            const game = new Game(this.container);
+            game.startOnArrowPress();
+        });
+        this.timerPointsContainer.appendChild(newGameButton);
     }
 }

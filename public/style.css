@@ -51,3 +51,16 @@ body {
     align-items: center;
     gap: 12px;
 }
+
+.userStatus {
+    font-size: 20px;
+}
+
+.newGameButton {
+    color: chocolate;
+    font-size: 14px;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 30px;
+}

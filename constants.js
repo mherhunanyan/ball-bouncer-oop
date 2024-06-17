@@ -6,6 +6,7 @@ export const {
     finalTime,
     speedBall,
     timerStart,
+    minPoints,
 } = {
     colors: ["black", "blue", "red"],
     cardSize: { width: 1100, height: 700 },

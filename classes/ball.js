@@ -1,5 +1,6 @@
 import { getRandomNumber } from "../helper/getRandomNumber.js";
-import { ballSize, cardSize, speedBall } from "../constants.js";
+import { ballSize, cardSize, colors, speedBall } from "../constants.js";
+import { randomGenerateColor } from "../helper/randomGenerateColor.js";
 
 export class Ball {
     constructor(parentElement) {
@@ -8,6 +9,7 @@ export class Ball {
         this.ball.style.width = ballSize.width + "px";
         this.ball.style.height = ballSize.height + "px";
         this.ball.style.top = "20px";
+        this.ball.style.backgroundColor = randomGenerateColor(colors);
         parentElement.appendChild(this.ball);
         this.html = this.ball;
     }

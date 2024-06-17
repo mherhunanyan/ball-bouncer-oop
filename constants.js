@@ -15,5 +15,5 @@ export const {
     speedBall: { bottom: 90 },
     timerStart: "02:00",
     minPoints: 520,
-    finalTime: 2000,
+    finalTime: 120000,
 };
